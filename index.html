@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="text/javascript" src="script.js"></script>
+
+    <title>unclickable unnerving interface</title>
+  </head>
+  <body>
+    <div id="container">
+            <p><span style="color: blue" id="txt"></span></p>
+      <div id="overlay">
+                <img id="image" src="https://yourdomainname.com/myimage/macaroni.jpg">
+
+      </div>
+      <!-- end #overlay -->
+      <video
+        id="myVideo"
+        muted
+        style="position: absolute; height:100%; z-index: -1"
+      >
+        
+
+        
+<!--         <source src="video.mp4" type="video/mp4" />  -->
+<!--         <source src="video.webm" type="video/webm" /> -->
+        
+        <script  src="trail.js"></script>
+        
+      </video>
+    </div>
+    <!-- end #container -->
+
+      <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    
+  </body>
+  
+  <script type="text/javascript">
+    
+          <!--TEXT --
+        const txts = [];
+    txts[0] = "is it?";
+    txts[1] = "LOOMBA Group";
+    txts[2] = "Campaign Against Living Miserably";
+    txts[3] = "Car Carriers";
+    txts[4] = "WOW: Warehouses Offices Workspaces";
+    txts[5] = "Epic has arrived.";
+    txts[6] = "Vanguard self storage";
+    txts[7] = "10000 square foot final phase";
+    txts[8] = "GRS we go beyond";
+    txts[9] = "Nada Clinic";
+    txts[10] = "Dennison";
+    txts[11] = "Muck away recycled materials";
+    txts[12] = "Perfect Glaze";
+    txts[13] = "Metropolitan Park";
+    txts[14] = "United Living";
+
+    var currentPos = 0;
+
+    function switcher() {
+      if (++currentPos >= txts.length) currentPos = 0;
+      //var text = (document.getElementById("txt").innerHTML = txts[currentPos]); getRndInteger(1,10)
+      var text = (document.getElementById("txt").innerHTML =
+        txts[getRndInteger(0, (txts.length))]);
+    }
+    setInterval(switcher, 5000); //how do i randomise this each time
+
+    function getRndInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+              <!--TEXT --
+    
+    var image = document.getElementById("image");
+    var currentPos = 0;
+    var images = [
+      "https://cdn.glitch.me/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/stars3.gif?v=1668699822859",
+      "https://cdn.glitch.global/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/1SecBubble.gif?v=1668699890691",
+      "https://cdn.glitch.global/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/1sec2.gif?v=1668699894705",
+      "https://cdn.glitch.global/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/1sec3.gif?v=1668699894705"
+    ];
+
+    function switcher() {
+      if (++currentPos >= images.length) currentPos = 0;
+
+      image.src = images[currentPos];
+    }
+
+    setInterval(switcher, 40000); //how do i randomise this each time
+
+    function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+    
+    var videoSource = new Array();
+
+    videoSource[0] =
+      "https://cdn.glitch.global/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/colours.mp4?v=1668703033733";
+    var i = 0; // define i
+    var videoCount = videoSource.length;
+
+    function videoPlay(videoNum) {
+      document
+        .getElementById("myVideo")
+        .setAttribute("src", videoSource[videoNum]);
+      document.getElementById("myVideo").load();
+      document.getElementById("myVideo").play();
+    }
+
+    document
+      .getElementById("myVideo")
+      .addEventListener("ended", myHandler, false);
+     // videoPlay(0); // play the video
+
+    function myHandler() {
+      i++;
+      if (i == videoCount) {
+        //if it's higher than the number of vids return to 0
+        i = 0;
+        videoPlay(i);
+      } else {
+        videoPlay(i);
+      }
+
+      /* for (i = 0; i < videoCount; i++){
+        videoPlay(i);
+      }*/
+    }
+
+    
+    
+        // $(window).on("load",function(){
+        //   $(".loader").fadeOut();
+        // });
+    $(document).on("load",function(){
+  document.getElementsByTagName("html")[0].style.visibility = "visible";
+});
+
+    
+  </script>
+</html>
+
+
+
