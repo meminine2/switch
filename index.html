@@ -1,104 +1,168 @@
 <!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+    <meta charset="utf-8" />
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <link rel="stylesheet" href="/style.css" />
+<head>
+    <link href="style.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="script.js"></script>
 
     <title>unclickable unnerving interface</title>
-  </head>
-  <body>
-    <div id="container">
-            <p><span style="color: blue" id="txt"></span></p>
-      <div id="overlay">
-                <img id="image" src="https://yourdomainname.com/myimage/macaroni.jpg">
+</head>
+<body>
 
-      </div>
-      <!-- end #overlay -->
-      <video
-        id="myVideo"
-        muted
-        style="position: absolute; height:100%; z-index: -1"
-      >
-        
+    <div class="centered"> <h2><span id="txt"></span></h2></div>
 
-        
-<!--         <source src="video.mp4" type="video/mp4" />  -->
-<!--         <source src="video.webm" type="video/webm" /> -->
-        
-        <script  src="trail.js"></script>
-        
-      </video>
-    </div>
-    <!-- end #container -->
+    <img id="image" style="height: 100vh" src="src/green.gif" />
 
-      <div class="loader-wrapper">
-      <span class="loader"><span class="loader-inner"></span></span>
-    </div>
-    
-  </body>
-  
-  <script type="text/javascript">
-    
+
+    <video id="myVideo"
+           muted
+           style="position: fixed; height: 100%; width: 100%; object-fit: cover; top: 0px; left: 0px; z-index: -1">
+        <source src="video.mp4" type="video/mp4" />
+        <source src="video.webm" type="video/webm" />
+    </video>
+
+
+</body>
+
+<script type="text/javascript">
+
           <!--TEXT --
-        const txts = [];
-    txts[0] = "is it?";
-    txts[1] = "LOOMBA Group";
-    txts[2] = "Campaign Against Living Miserably";
-    txts[3] = "Car Carriers";
-    txts[4] = "WOW: Warehouses Offices Workspaces";
-    txts[5] = "Epic has arrived.";
-    txts[6] = "Vanguard self storage";
-    txts[7] = "10000 square foot final phase";
-    txts[8] = "GRS we go beyond";
-    txts[9] = "Nada Clinic";
-    txts[10] = "Dennison";
-    txts[11] = "Muck away recycled materials";
-    txts[12] = "Perfect Glaze";
-    txts[13] = "Metropolitan Park";
-    txts[14] = "United Living";
+        var txts = [
+    "",
+    "LOOMBA Group",
+    "",
+    "Campaign Against Living Miserably",
+    "",
+    "Car Carriers",
+    "",
+    "WOW: Warehouses Offices Workspaces",
+    "",
+    "Epic has arrived.",
+    "",
+    "Vanguard self storage",
+    "",
+    "10000 square foot final phase",
+    "",
+    "GRS: We Go Beyond",
+    "",
+    "Caution Keep Back",
+    "",
+    "Nada Clinic",
+    "",
+    "Dennison",
+    "",
+    "Muck Away <br> Recycled Materials",
+    "",
+    "Perfect Glaze",
+    "",
+    "Metropolitan Park",
+    "",
+    "United Living",
+    "",
+    "Optimum Pallets",
+    "",
+    "polite think bike",
+    "",
+    "onsite electrical services",
+    "",
+    "X-travel",
+    "",
+    "Super Tuff",
+    "",
+    "JLC 250-d",
+    "",
+    "R.I.P. MIKE",
+    "",
+    "Luxatti",
+    "",
+    "Dafcon",
+    "",
+    "Ashville Aggregates",
+    "",
+    "Onyx Performance",
+    "",
+    "Grab Services",
+    "",
+    "Nunca:<br>delivering sustainable solutions"
+    ];
 
-    var currentPos = 0;
+    var currentPosT = 0;
 
-    function switcher() {
-      if (++currentPos >= txts.length) currentPos = 0;
-      //var text = (document.getElementById("txt").innerHTML = txts[currentPos]); getRndInteger(1,10)
-      var text = (document.getElementById("txt").innerHTML =
-        txts[getRndInteger(0, (txts.length))]);
+    function switcherT() {
+      if (++currentPosT >= txts.length) currentPosT = 0;
+        var text = (document.getElementById("txt").innerHTML =
+            txts[currentPosT]);
+        //txts[currentPos];
     }
-    setInterval(switcher, 5000); //how do i randomise this each time
+    setInterval(switcherT, [getRndInteger(2000, (4000))]); //how do i randomise this each time
 
     function getRndInteger(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
               <!--TEXT --
-    
+
     var image = document.getElementById("image");
     var currentPos = 0;
     var images = [
-      "https://cdn.glitch.me/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/stars3.gif?v=1668699822859",
-      "https://cdn.glitch.global/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/1SecBubble.gif?v=1668699890691",
-      "https://cdn.glitch.global/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/1sec2.gif?v=1668699894705",
-      "https://cdn.glitch.global/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/1sec3.gif?v=1668699894705"
+      "src/1sec2.gif",
+      "src/1sec3.gif",
+      "src/1SecBubble.gif",
+      "src/11.gif",
+      "src/fire.gif",
+      "src/green.gif",
+      "src/snow1.gif",
+      "src/stars.gif",
+      "src/stars2.gif",
+      "src/stars3.gif",
+      "src/tlights.gif",
+      "src/wall.gif",
+      "src/wee.gif",
+      "src/bee.gif",
+
     ];
 
     function switcher() {
       if (++currentPos >= images.length) currentPos = 0;
 
-      image.src = images[currentPos];
+      //image.src = images[currentPos];
+      image.src = images[getRndInteger(0, (images.length-1))];
     }
 
-    setInterval(switcher, 40000); //how do i randomise this each time
+    setInterval(switcher, getRndInteger(4000, 10000));
+    //setInterval(switcher, 100);
 
     function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
-    
-    var videoSource = new Array();
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
+  
+    var videoSource = new Array();
     videoSource[0] =
-      "https://cdn.glitch.global/b57186f2-05ba-4e6a-8b83-b6a9ef29f9b5/colours.mp4?v=1668703033733";
+    "src/colours.mp4";
+    videoSource[1] =
+    "src/black.mp4";
+    videoSource[2] =
+    "src/colours.mp4";
+    videoSource[3] =
+    "src/black.mp4";
+    videoSource[4] =
+    "src/green.mp4";
+
+
     var i = 0; // define i
-    var videoCount = videoSource.length;
+    var videoCount = videoSource.length; 
+
+    /*
+    var videoSource = [
+    "src/Green.mp4";
+    "src/Green.mp4";
+     ]
+    var i = 0; // define i
+    var videoCount = videoSource.length; */
+
 
     function videoPlay(videoNum) {
       document
@@ -111,7 +175,7 @@
     document
       .getElementById("myVideo")
       .addEventListener("ended", myHandler, false);
-     // videoPlay(0); // play the video
+    videoPlay(0); // play the video
 
     function myHandler() {
       i++;
@@ -128,18 +192,7 @@
       }*/
     }
 
-    
-    
-        // $(window).on("load",function(){
-        //   $(".loader").fadeOut();
-        // });
-    $(document).on("load",function(){
-  document.getElementsByTagName("html")[0].style.visibility = "visible";
-});
 
-    
-  </script>
+
+</script>
 </html>
-
-
-
