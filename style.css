@@ -47,8 +47,10 @@
     min-width: 100%;
     min-height: 100%;
   }
-  */ body {
-    background-color: pink;
+  body {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   
   /* Page structure */
